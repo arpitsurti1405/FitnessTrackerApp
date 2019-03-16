@@ -11,9 +11,11 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.get('/status',(req,res) => {
+app.post('/register',(req,res) => {
     res.send({
-        message:'Hello World!!!'
+        message: `User ${req.body.email} registered successfully!.`
     })
 })
+
+
 app.listen(process.env.PORT || 8081)
