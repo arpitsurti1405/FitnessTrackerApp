@@ -5,7 +5,11 @@
             Fitness Tracker
         </span>
     </v-toolbar-title>
-
+    <v-toolbar-items>
+      <v-btn flat @click="navigateTo({name:'song'})">
+        Browse
+      </v-btn>
+    </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items>
           <v-btn v-if="$store.state.isUserLoggedIn" flat @click="navigateTo({name:'login'})">
