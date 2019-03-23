@@ -21,7 +21,7 @@ module.exports = {
             console.log(err)
 
             res.status(500).send({
-                    error:'Error occured in fetching one exerciseType'
+                    error:'Error occured in fetching one equipments'
             })
         }
     },
