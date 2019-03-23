@@ -25,6 +25,19 @@ module.exports = {
             })
         }
     },
+    async getByIds (req,res) {
+        try{
+            console.log(req.params.id)
+            const equipment = await ExerciseEquipment.findByPk(req.params.id)
+            res.send(equipment)
+        }catch(err){
+            console.log(err)
+
+            res.status(500).send({
+                    error:'Error occured in fetching one equipments'
+            })
+        }
+    },
     async add (req,res) {
         try{
             const equipments = await ExerciseEquipment.create(req.body)
