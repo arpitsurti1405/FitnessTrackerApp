@@ -7,6 +7,7 @@ const ExercisesController = require('./controllers/ExercisesController')
 const WorkoutsController = require('./controllers/WorkoutsController')
 const WorkoutJunctionsController = require('./controllers/WorkoutJunctionsController')
 const WorkoutTargetsController = require('./controllers/WorkoutTargetsController')
+const LogsController = require('./controllers/LogsController')
 
 
 module.exports=(app)=>{
@@ -40,5 +41,9 @@ module.exports=(app)=>{
     app.get('/workoutTarget',WorkoutTargetsController.getAll)
     app.get('/workoutTarget/:id',WorkoutTargetsController.getById)
     app.post('/workoutTarget',WorkoutTargetsController.add)
+    
+    app.get('/log',LogsController.getAll)
+    app.get('/log/:id',LogsController.getById)
+    app.post('/log',LogsController.add)
     
 }
