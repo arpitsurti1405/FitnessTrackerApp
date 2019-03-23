@@ -1,22 +1,22 @@
-const {ExerciseType} = require('../models')
+const {ExerciseEquipment} = require('../models')
 module.exports = {
     async getAll (req,res) {
         try{
-            const exerciseTypes = await ExerciseType.findAll({
+            const equipments = await ExerciseEquipment.findAll({
                 limit : 50
             })
-            res.send(exerciseTypes)
+            res.send(equipments)
         }catch(err){
             res.status(500).send({
-                    error:'Error occured in fetching all exerciseTypes'
+                    error:'Error occured in fetching all equipments'
             })
         }
     },
     async getById (req,res) {
         try{
             console.log(req.params.id)
-            const exerciseType = await ExerciseType.findByPk(req.params.id)
-            res.send(exerciseType)
+            const equipment = await ExerciseEquipment.findByPk(req.params.id)
+            res.send(equipment)
         }catch(err){
             console.log(err)
 
@@ -27,11 +27,11 @@ module.exports = {
     },
     async add (req,res) {
         try{
-            const exerciseType = await ExerciseType.create(req.body)
-            res.send(exerciseType)
+            const equipments = await ExerciseEquipment.create(req.body)
+            res.send(equipments)
         }catch(err){
             res.status(500).send({
-                    error:'Error occured in creating exerciseTypes'
+                    error:'Error occured in creating equipments'
             })
         }
     },
