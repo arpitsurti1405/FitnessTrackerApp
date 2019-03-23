@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes)=>{
     const et = sequelize.define('WorkoutType',{
-        WorkoutName:{
+        WorkoutTypeName:{
             type: DataTypes.STRING,
             unique:true
         },

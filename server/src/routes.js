@@ -4,6 +4,7 @@ const ExerciseTypesController = require('./controllers/ExerciseTypesController')
 const ExerciseEquipmentsController = require('./controllers/ExerciseEquipmentsController')
 const WorkoutTypesController = require('./controllers/WorkoutTypesController')
 const ExercisesController = require('./controllers/ExercisesController')
+const WorkoutsController = require('./controllers/WorkoutsController')
 
 module.exports=(app)=>{
     app.post('/register',AuthenticationControllerPolicy.register,AuthenticationController.register)
@@ -24,4 +25,8 @@ module.exports=(app)=>{
     app.get('/exercises',ExercisesController.getAll)
     app.get('/exercises/:id',ExercisesController.getById)
     app.post('/exercises',ExercisesController.add)
+
+    app.get('/workout',WorkoutsController.getAll)
+    app.get('/workout/:id',WorkoutsController.getById)
+    app.post('/workout',WorkoutsController.add)
 }
