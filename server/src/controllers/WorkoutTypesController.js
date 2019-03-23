@@ -24,9 +24,7 @@ module.exports = {
     },
     async add (req,res) {
         try{
-            console.log(req.body)
             const workoutType = await WorkoutType.create(req.body)
-            console.log('sdsds')
             res.send(workoutType)
         }catch(err){
             res.status(500).send({
