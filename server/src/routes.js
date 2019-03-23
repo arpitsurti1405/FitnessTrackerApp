@@ -8,7 +8,7 @@ const WorkoutsController = require('./controllers/WorkoutsController')
 const WorkoutJunctionsController = require('./controllers/WorkoutJunctionsController')
 const WorkoutTargetsController = require('./controllers/WorkoutTargetsController')
 const LogsController = require('./controllers/LogsController')
-
+const LogEntriesController = require('./controllers/LogEntriesController')
 
 module.exports=(app)=>{
     app.post('/register',AuthenticationControllerPolicy.register,AuthenticationController.register)
@@ -46,4 +46,7 @@ module.exports=(app)=>{
     app.get('/log/:id',LogsController.getById)
     app.post('/log',LogsController.add)
     
+    app.get('/logEntry',LogEntriesController.getAll)
+    app.get('/logEntry/:id',LogEntriesController.getById)
+    app.post('/logEntry',LogEntriesController.add)
 }

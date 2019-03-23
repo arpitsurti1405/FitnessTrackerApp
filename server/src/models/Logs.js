@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes)=>{
     const et = sequelize.define('Log',{
         WorkoutId:{
-            type: DataTypes.STRING,
+            type: DataTypes.NUMBER,
             unique:true
         },
         Date:{
