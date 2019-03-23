@@ -14,7 +14,7 @@ module.exports = {
     },
     async getById (req,res) {
         try{
-            console.log(req.params.id)
+            console.log('sd'+req.params.id)
             const equipment = await ExerciseEquipment.findByPk(req.params.id)
             res.send(equipment)
         }catch(err){
