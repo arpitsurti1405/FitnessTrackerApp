@@ -3,7 +3,9 @@ module.exports = {
     async getAll (req,res) {
         try{
             const equipments = await ExerciseEquipment.findAll({
-                limit : 50
+                where :{
+                    isActive : true
+                }
             })
             res.send(equipments)
         }catch(err){
@@ -45,6 +47,18 @@ module.exports = {
         }catch(err){
             res.status(500).send({
                     error:'Error occured in creating equipments'
+            })
+        }
+    },
+    async delete (req,res) {
+        try{
+            const {id} = req.params
+            const equipment = await ExerciseEquipment.findByPk(id)
+            await equipment.destroy()
+            res.send(equipment)
+        }catch(err){
+            res.status(500).send({
+                    error:'Error occured in deleting equipments'
             })
         }
     },

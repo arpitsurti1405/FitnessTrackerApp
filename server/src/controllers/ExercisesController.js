@@ -24,12 +24,23 @@ module.exports = {
     },
     async add (req,res) {
         try{
-            console.log(req.body);
             const exercise = await Exercise.create(req.body)
             res.send(exercise)
         }catch(err){
             res.status(500).send({
                     error:'Error occured in creating Exercise'
+            })
+        }
+    },
+    async delete (req,res) {
+        try{
+            const {id} = req.params
+            const exercise = await Exercise.findByPk(id)
+            await exercise.destroy()
+            res.send(exercise)
+        }catch(err){
+            res.status(500).send({
+                    error:'Error occured in deleting exercise'
             })
         }
     },

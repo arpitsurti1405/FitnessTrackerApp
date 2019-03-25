@@ -33,4 +33,16 @@ module.exports = {
             })
         }
     },
+    async delete (req,res) {
+        try{
+            const {id} = req.params
+            const workoutJunction = await WorkoutJunction.findByPk(id)
+            await workoutJunction.destroy()
+            res.send(workoutJunction)
+        }catch(err){
+            res.status(500).send({
+                    error:'Error occured in deleting workoutJunction'
+            })
+        }
+    },
 }

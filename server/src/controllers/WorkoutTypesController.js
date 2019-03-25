@@ -3,7 +3,9 @@ module.exports = {
     async getAll (req,res) {
         try{
             const workoutTypes = await WorkoutType.findAll({
-                limit : 50
+                where :{
+                    isActive : true
+                }
             })
             res.send(workoutTypes)
         }catch(err){
@@ -29,6 +31,18 @@ module.exports = {
         }catch(err){
             res.status(500).send({
                     error:'Error occured in creating workoutTypes'
+            })
+        }
+    },
+    async delete (req,res) {
+        try{
+            const {id} = req.params
+            const workoutType = await WorkoutType.findByPk(id)
+            await workoutType.destroy()
+            res.send(workoutType)
+        }catch(err){
+            res.status(500).send({
+                    error:'Error occured in deleting workoutTarget'
             })
         }
     },

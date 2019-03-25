@@ -32,4 +32,16 @@ module.exports = {
             })
         }
     },
+    async delete (req,res) {
+        try{
+            const {id} = req.params
+            const workout = await Workout.findByPk(id)
+            await workout.destroy()
+            res.send(workout)
+        }catch(err){
+            res.status(500).send({
+                    error:'Error occured in deleting workout'
+            })
+        }
+    },
 }

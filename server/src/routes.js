@@ -21,6 +21,7 @@ module.exports=(app)=>{
     app.get('/exerciseEquipments',ExerciseEquipmentsController.getAll)
     app.post('/exerciseEquipments',ExerciseEquipmentsController.add)
     app.get('/exerciseEquipments/:id',ExerciseEquipmentsController.getById)
+    app.delete('/exerciseEquipments/:id',ExerciseEquipmentsController.delete)
 
     app.get('/workoutTypes',WorkoutTypesController.getAll)
     app.get('/workoutTypes/:id',WorkoutTypesController.getById)

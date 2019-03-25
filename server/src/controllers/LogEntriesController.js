@@ -33,4 +33,16 @@ module.exports = {
             })
         }
     },
+    async delete (req,res) {
+        try{
+            const {id} = req.params
+            const entry = await LogEntries.findByPk(id)
+            await entry.destroy()
+            res.send(entry)
+        }catch(err){
+            res.status(500).send({
+                    error:'Error occured in deleting entry'
+            })
+        }
+    },
 }
