@@ -44,4 +44,18 @@ module.exports = {
             })
         }
     },
+    async update (req, res) {
+        try {
+          await Workout.update(req.body, {
+            where: {
+              id: req.params.id
+            }
+          })
+          res.send(req.body)
+        } catch (err) {
+          res.status(500).send({
+            error: 'an error has occured trying to update the Workout'
+          })
+        }
+    }
 }
