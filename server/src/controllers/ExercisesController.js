@@ -24,6 +24,21 @@ module.exports = {
     },
     async add (req,res) {
         try{
+            const {ExerciseName,ExerciseTypeId,ExerciseEquipmentId} = req.body;
+            const record = await Exercise.findOne(
+                {
+                    where :{
+                        ExerciseName: ExerciseName,
+                        ExerciseTypeId: ExerciseTypeId,
+                        ExerciseEquipmentId: ExerciseEquipmentId
+                    }
+                }
+            )
+            if(record) {
+                return res.status(400).send({
+                    error: "Same combination already exists"
+                })
+            }
             const exercise = await Exercise.create(req.body)
             res.send(exercise)
         }catch(err){

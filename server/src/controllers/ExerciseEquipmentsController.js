@@ -2,11 +2,7 @@ const {ExerciseEquipment} = require('../models')
 module.exports = {
     async getAll (req,res) {
         try{
-            const equipments = await ExerciseEquipment.findAll({
-                where :{
-                    isActive : true
-                }
-            })
+            const equipments = await ExerciseEquipment.findAll()
             res.send(equipments)
         }catch(err){
             res.status(500).send({
@@ -16,25 +12,10 @@ module.exports = {
     },
     async getById (req,res) {
         try{
-            console.log('sd'+req.params.id)
             const equipment = await ExerciseEquipment.findByPk(req.params.id)
             res.send(equipment)
         }catch(err){
             console.log(err)
-
-            res.status(500).send({
-                    error:'Error occured in fetching one equipments'
-            })
-        }
-    },
-    async getByIds (req,res) {
-        try{
-            console.log(req.params.id)
-            const equipment = await ExerciseEquipment.findByPk(req.params.id)
-            res.send(equipment)
-        }catch(err){
-            console.log(err)
-
             res.status(500).send({
                     error:'Error occured in fetching one equipments'
             })
@@ -42,6 +23,19 @@ module.exports = {
     },
     async add (req,res) {
         try{
+            const {EquipmentName} = req.body;
+            const eqpName = await ExerciseEquipment.findOne(
+                {
+                    where :{
+                        EquipmentName: EquipmentName
+                    }
+                }
+            )
+            if(eqpName) {
+                return res.status(400).send({
+                    error: "Same equipment name already exists"
+                })
+            }
             const equipments = await ExerciseEquipment.create(req.body)
             res.send(equipments)
         }catch(err){

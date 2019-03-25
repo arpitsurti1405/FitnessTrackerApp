@@ -26,6 +26,19 @@ module.exports = {
     },
     async add (req,res) {
         try{
+            const {WorkoutTypeName} = req.body;
+            const record = await WorkoutType.findOne(
+                {
+                    where :{
+                        WorkoutTypeName: WorkoutTypeName,
+                    }
+                }
+            )
+            if(record) {
+                return res.status(400).send({
+                    error: "Same workout name already exists"
+                })
+            }
             const workoutType = await WorkoutType.create(req.body)
             res.send(workoutType)
         }catch(err){

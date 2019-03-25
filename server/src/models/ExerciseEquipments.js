@@ -3,9 +3,6 @@ module.exports = (sequelize, DataTypes)=>{
         EquipmentName:{
             type: DataTypes.STRING,
             unique:true
-        },
-        isActive:{
-            type: DataTypes.BOOLEAN
         }
     })
     return et

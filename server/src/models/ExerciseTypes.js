@@ -1,12 +1,9 @@
 module.exports = (sequelize, DataTypes)=>{
     const et = sequelize.define('ExerciseType',{
-        ExerciseType:{
+        ExerciseTypeName:{
             type: DataTypes.STRING,
             unique:true
         },
-        isActive:{
-            type: DataTypes.BOOLEAN
-        }
     })
     return et
 }
