@@ -14,7 +14,6 @@ module.exports = {
     async register (req, res) {
         try{
             const user = await User.create(req.body)
-            console.log(user)
             res.send({
                 user: user.toJSON(),
                 token : user.toJSON()
@@ -23,6 +22,20 @@ module.exports = {
             res.status(400).send({
                     error:'Email already exists!'
                 })
+        }
+    },
+    async updateUser (req, res) {
+        try {
+          await User.update(req.body, {
+            where: {
+              id: req.params.id
+            }
+          })
+          res.send(req.body)
+        } catch (err) {
+          res.status(500).send({
+            error: 'an error has occured trying to update the users'
+          })
         }
     },
     async login (req,res) {

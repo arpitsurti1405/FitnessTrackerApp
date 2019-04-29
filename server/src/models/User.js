@@ -7,5 +7,6 @@ module.exports = (sequelize, DataTypes)=>
         password: DataTypes.STRING,
         age: DataTypes.NUMBER,
         weight: DataTypes.STRING,
-        height: DataTypes.STRING
+        height: DataTypes.STRING,
+        name: DataTypes.STRING,
     })

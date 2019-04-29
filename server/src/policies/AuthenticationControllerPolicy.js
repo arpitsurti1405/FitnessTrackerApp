@@ -7,7 +7,10 @@ module.exports = {
             password:Joi.string().regex(
                 new RegExp('^[a-zA-Z0-9]{8,60}$')
             ),
-            age: Joi.string()   
+            age: Joi.string(),
+            weight: Joi.string(),
+            height: Joi.string(),
+            name: Joi.string(),
         }
         const {error,value} = Joi.validate(req.body,schema)
         if(error){

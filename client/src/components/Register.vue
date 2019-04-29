@@ -35,6 +35,9 @@ export default{
       email: '',
       password: '',
       age: '',
+      height: '',
+      weight: '',
+      name: '',
       error: null
     }
   },
@@ -44,7 +47,10 @@ export default{
         const response = await AuthenticationService.register({
           email: this.email,
           password: this.password,
-          age: this.age
+          age: this.age,
+          height: this.height,
+          weight: this.weight,
+          name: this.name
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
