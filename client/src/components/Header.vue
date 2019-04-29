@@ -6,9 +6,9 @@
         </span>
     </v-toolbar-title>
     <v-toolbar-items>
-      //  <v-btn flat @click="navigateTo({name:'song'})">
-        //  Browse
-      //  </v-btn>
+       <v-btn flat @click="navigateTo({name:'song'})">
+        Friends
+       </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items>

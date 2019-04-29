@@ -11,6 +11,13 @@
             <v-text-field label="Email" v-model="email"></v-text-field>
             <br>
             <v-text-field label="Password" type="password" v-model="password" autocomplete="new-password"></v-text-field>
+            <br>
+            <v-text-field label="Age" v-model="age"></v-text-field>
+            <br>
+            <v-text-field label="Weight" v-model="weight"></v-text-field>
+            <br>
+            <v-text-field label="Height" v-model="height"></v-text-field>
+            <br>
           </form>
           <br>
           <div class="error" v-html="error" /><br>
@@ -27,6 +34,7 @@ export default{
     return {
       email: '',
       password: '',
+      age: '',
       error: null
     }
   },
@@ -35,9 +43,10 @@ export default{
       try {
         const response = await AuthenticationService.register({
           email: this.email,
-          password: this.password
+          password: this.password,
+          age: this.age
         })
-        //  this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error

@@ -11,6 +11,13 @@
             <v-text-field label="Email" v-model="email"></v-text-field>
             <br>
             <v-text-field label="Password" type="password" v-model="password" autocomplete="new-password"></v-text-field>
+            <br>
+            <v-text-field label="Age" type="password" v-model="age"></v-text-field>
+            <br>
+            <v-text-field label="Weight" type="weight" v-model="weight"></v-text-field>
+            <br>
+            <v-text-field label="Height" type="height" v-model="height"></v-text-field>
+            <br>
           </form>
           <br>
           <div class="error" v-html="error" /><br>

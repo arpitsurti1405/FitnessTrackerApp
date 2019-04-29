@@ -37,7 +37,6 @@ export default{
           email: this.email,
           password: this.password
         })
-        console.log(response.data.token)
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
@@ -48,7 +47,7 @@ export default{
 }
 </script>
 <style scoped>
-.error{
+.error {
   color:red;
 }
 
