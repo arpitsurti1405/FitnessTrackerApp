@@ -3,12 +3,12 @@
     <v-flex xs6 offset-xs3>
       <div class="white elevation-2">
         <v-toolbar flat dense class="gray" dark>
-          <v-toolbar-title>Equipments</v-toolbar-title>
+          <v-toolbar-title>Exercise Type</v-toolbar-title>
         </v-toolbar>
 
         <div class="pl-4 pr-4 pt-2 pb-2">
           <form name="equp" autocomplete="off">
-            <v-text-field label="Equipment Name" v-model="EquipmentName"></v-text-field>
+            <v-text-field label="Exercise Type Name" v-model="ExerciseTypeName"></v-text-field>
             <br>
           </form>
           <br>
@@ -20,19 +20,19 @@
   </v-layout>
  </template>
 <script>
-import ExerciseEquipmentsService from '@/services/ExerciseEquipmentsService'
+import ExerciseTypesService from '@/services/ExerciseTypesService'
 export default{
   data () {
     return {
-      EquipmentName: null,
+      ExerciseTypeName: null,
       error: null
     }
   },
   methods: {
     async add () {
       try {
-        await ExerciseEquipmentsService.add({
-          EquipmentName: this.EquipmentName
+        await ExerciseTypesService.add({
+          ExerciseTypeName: this.ExerciseTypeName
         })
       } catch (error) {
         this.error = error.response.data.error
@@ -41,7 +41,6 @@ export default{
   }
 }
 </script>
-
 <style scoped>
 .error {
   color:white;

@@ -22,6 +22,7 @@ module.exports = {
         }
     },
     async add (req,res) {
+        console.log('In exercise type equiment controller')
         try{
             const {EquipmentName} = req.body;
             const eqpName = await ExerciseEquipment.findOne(

@@ -49,7 +49,7 @@ export default{
 </script>
 <style scoped>
 .error {
-  color:red;
+  color:white;
 }
 
 </style>

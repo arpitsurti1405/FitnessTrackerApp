@@ -21,7 +21,7 @@
           </form>
           <br>
           <div class="error" v-html="error" /><br>
-          <v-btn dark class="cyan" @click="register({name:'login'})">Register</v-btn>
+          <v-btn dark class="cyan" @click="register">Register</v-btn>
         </div>
       </div>
     </v-flex>
@@ -42,7 +42,7 @@ export default{
     }
   },
   methods: {
-    async register (route) {
+    async register () {
       try {
         const response = await AuthenticationService.register({
           email: this.email,
@@ -64,7 +64,7 @@ export default{
 </script>
 <style scoped>
 .error{
-  color:red;
+  color:white;
 }
 
 </style>

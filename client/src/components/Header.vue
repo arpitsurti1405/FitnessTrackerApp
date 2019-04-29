@@ -10,12 +10,18 @@
         Friends
        </v-btn>
        <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'equipmentType'})">
-        Equipment Name
+        Equipments
+       </v-btn>
+        <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'exerciseType'})">
+        Exercise Type
+       </v-btn>
+       <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'workoutType'})">
+        Workout Type
        </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items>
-          <v-btn v-if="!$store.state.isUserLoggedIn" flat @click="navigateTo({name:'login'})">
+        <v-btn v-if="!$store.state.isUserLoggedIn" flat @click="navigateTo({name:'login'})">
             Login
         </v-btn>
         <v-btn v-if="!$store.state.isUserLoggedIn" flat @click="navigateTo({name:'register'})">
