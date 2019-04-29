@@ -13,6 +13,7 @@ const LogEntriesController = require('./controllers/LogEntriesController')
 module.exports=(app)=>{
     app.post('/register',AuthenticationControllerPolicy.register,AuthenticationController.register)
     app.post('/login',AuthenticationController.login)
+    app.post('/updateUser',AuthenticationController.register)
 
     app.get('/exerciseTypes',ExerciseTypesController.getAll)
     app.post('/exerciseTypes',ExerciseTypesController.add)

@@ -2,7 +2,7 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <div class="white elevation-2">
-        <v-toolbar flat dense class="blue" dark>
+        <v-toolbar flat dense class="gray" dark>
           <v-toolbar-title>Profile</v-toolbar-title>
         </v-toolbar>
 
@@ -30,17 +30,6 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 export default{
-  data () {
-    return {
-      email: '',
-      password: '',
-      age: '',
-      height: '',
-      weight: '',
-      name: '',
-      error: null
-    }
-  },
   methods: {
     async update () {
       try {

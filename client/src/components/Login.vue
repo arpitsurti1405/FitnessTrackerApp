@@ -2,7 +2,7 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <div class="white elevation-2">
-        <v-toolbar flat dense class="blue" dark>
+        <v-toolbar flat dense class="gray" dark>
           <v-toolbar-title>Login</v-toolbar-title>
         </v-toolbar>
 
@@ -39,6 +39,7 @@ export default{
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({ name: 'root' })
       } catch (error) {
         this.error = error.response.data.error
       }

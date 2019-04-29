@@ -1,13 +1,16 @@
 <template>
-  <v-toolbar fixed class="blue">
+  <v-toolbar fixed class="cyan">
     <v-toolbar-title class="mr-4">
         <span class="home" @click="navigateTo({name:'root'})">
             Fitness Tracker
         </span>
     </v-toolbar-title>
     <v-toolbar-items>
-       <v-btn flat @click="navigateTo({name:'song'})">
+       <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'song'})">
         Friends
+       </v-btn>
+       <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'equipmentType'})">
+        Equipment Name
        </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
