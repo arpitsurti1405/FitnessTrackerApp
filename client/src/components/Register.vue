@@ -44,7 +44,7 @@ export default{
   methods: {
     async register () {
       try {
-        const response = await AuthenticationService.register({
+        await AuthenticationService.register({
           email: this.email,
           password: this.password,
           age: this.age,
@@ -52,8 +52,6 @@ export default{
           weight: this.weight,
           name: this.name
         })
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
         this.$router.push({ name: 'login' })
       } catch (error) {
         this.error = error.response.data.error

@@ -6,9 +6,6 @@
         </span>
     </v-toolbar-title>
     <v-toolbar-items>
-       <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'song'})">
-        Friends
-       </v-btn>
        <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'equipmentType'})">
         Equipments
        </v-btn>
@@ -17,6 +14,12 @@
        </v-btn>
        <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'workoutType'})">
         Workout Type
+       </v-btn>
+        <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'exercises'})">
+        Exercises
+       </v-btn>
+        <v-btn flat v-if="$store.state.isUserLoggedIn" @click="navigateTo({name:'song'})">
+        Friends
        </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>

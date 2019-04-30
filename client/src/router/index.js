@@ -5,6 +5,7 @@ import UserInfo from '@/components/UserInfo'
 import ExerciseEquipments from '@/components/ExerciseEquipments'
 import ExercisesType from '@/components/ExercisesType'
 import WorkoutType from '@/components/WorkoutType'
+import Exercises from '@/components/Exercises'
 import Register from '@/components/register'
 import Login from '@/components/login'
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/workoutType',
       name: 'workoutType',
       component: WorkoutType
+    },
+    {
+      path: '/exercises',
+      name: 'exercises',
+      component: Exercises
     }
   ]
 })
