@@ -12,4 +12,5 @@ export default {
   },
   getAllUser () {
     return Api().getAllUser('user')
+  }
 }

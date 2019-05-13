@@ -1,6 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h2>Suggestive Search</h2>
+    <autocomplete
+  ref="autocomplete"
+  placeholder="Search Distribution Groups"
+  :source="itemList"
+  input-class="form-control"
+  results-property="data"
+  @selected="addDistributionGroup">
+</autocomplete>
   </div>
 </template>
 <script>
