@@ -38,6 +38,18 @@ module.exports = {
           })
         }
     },
+    async getAllUsers () {
+        try{
+            const user = await User.findAll()
+            res.send({
+                user: user.toJSON(),
+            })
+        }catch(err){
+            res.status(400).send({
+                    error:'No data found!'
+                })
+        }
+    },
     async login (req,res) {
         try{
             const {email,password} = req.body
