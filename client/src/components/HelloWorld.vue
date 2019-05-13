@@ -3,13 +3,31 @@
     <h1>{{ msg }}</h1>
   </div>
 </template>
-
 <script>
+import Autocomplete from 'vuejs-auto-complete'
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Fitness Tracker App'
+      msg: 'Welcome to Fitness Tracker App',
+      itemList: [{name: 'Arpit'}, {name: 'Doe'}, {name: 'Eric'}, {name: 'Test'}, {name: 'ABC'}],
+      searchInput: ''
+    }
+  },
+  components: {
+    Autocomplete
+  },
+  methods: {
+    distributionGroupsEndpoint (input) {
+      return process.env.API + '/distribution/search?query=' + input
+    },
+    addDistributionGroup (group) {
+      this.group = group
+      // access the autocomplete component methods from the parent
+      //  this.$refs.autocomplete.clear()
+    },
+    formattedDisplay (result) {
+      return result.name
     }
   }
 }
