@@ -9,5 +9,7 @@ export default {
   },
   getUser (id) {
     return Api().post('user/id', id)
-  }
+  },
+  getAllUser () {
+    return Api().getAllUser('user')
 }
